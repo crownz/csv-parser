@@ -1,0 +1,22 @@
+.container {
+  width: 500px;
+}
+
+.top {
+  position: relative;
+  padding: 20px 20px 0;
+}
+
+.bottom {
+  background-color: #fafafa;
+  padding: 0 20px 20px;
+}
+
+.rate {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -16px;
+}
