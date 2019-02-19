@@ -1,1 +1,1 @@
-export { default } from './exchange-widget';
+export { default } from './exchange-widget-container';

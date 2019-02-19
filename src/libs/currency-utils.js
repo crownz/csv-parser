@@ -1,1 +1,2 @@
-export const getFormattedAmount = (currencySign, amount) => `${currencySign}${amount.toFixed(2)}`;
+export const getFormattedAmount = (currencySign, amount, fixedNumber = 2) =>
+  `${currencySign}${amount.toFixed(fixedNumber)}`;

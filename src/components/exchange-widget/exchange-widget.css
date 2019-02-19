@@ -12,6 +12,13 @@
   padding: 0 20px 20px;
 }
 
+.swap {
+  position: absolute;
+  bottom: -16px;
+  left: 10px;
+  z-index: 1;
+}
+
 .rate {
   display: flex;
   justify-content: center;
