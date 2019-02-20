@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 
-import { changeDeduction, changeGain, swapWallets } from '../../actions/exchange';
+import {
+  changeDeduction,
+  changeGain,
+  swapWallets,
+  exchangeCurrencies
+} from '../../actions/exchange';
 import ExchangeWidget from './exchange-widget';
 
 const mapStateToProps = state => {
@@ -23,7 +28,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   onDeductionChange: changeDeduction,
   onGainChange: changeGain,
-  swapWallets
+  swapWallets,
+  exchangeCurrencies
 };
 
 export default connect(

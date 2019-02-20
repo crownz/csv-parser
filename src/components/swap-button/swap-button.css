@@ -1,8 +1,18 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
-  background-color: blue;
+  color: #0277bd;
+  background-color: #fff;
   border-radius: 50%;
   border: 2px solid #f5f5f5;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #0277bd;
+    color: #fff;
+  }
 }

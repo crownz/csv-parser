@@ -13,4 +13,13 @@
   &:hover {
     background-color: #ff5c8d;
   }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: default;
+
+    &:hover {
+      background-color: #d81b60;
+    }
+  }
 }

@@ -17,7 +17,8 @@ const ExchangeWidget = ({
   gain,
   onDeductionChange,
   onGainChange,
-  swapWallets
+  swapWallets,
+  exchangeCurrencies
 }) => (
   <div className={styles.container}>
     <div className={styles.top}>
@@ -25,6 +26,7 @@ const ExchangeWidget = ({
         wallet={activeWallet}
         exchangeAmount={deduction}
         onAmountChange={onDeductionChange}
+        shouldValidateWallet
       />
       <div className={styles.swap}>
         <SwapButton onClick={swapWallets} />
@@ -41,7 +43,12 @@ const ExchangeWidget = ({
     </div>
     <div className={styles.bottom}>
       <WalletEntry wallet={resultWallet} exchangeAmount={gain} onAmountChange={onGainChange} />
-      <Button onClick={() => {}}>Exchange</Button>
+      <Button
+        onClick={exchangeCurrencies}
+        disabled={!deduction || deduction < 0.1 || deduction > activeWallet.amount}
+      >
+        Exchange
+      </Button>
     </div>
   </div>
 );
