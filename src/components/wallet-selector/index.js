@@ -1,1 +1,1 @@
-export { default } from './wallet-selector';
+export { default } from './wallet-selector-container';

@@ -1,4 +1,10 @@
-import { EXCHANGE_RATES_CHANGE, EXCHANGE_BALANCES_CHANGE, SWAP_WALLETS } from '../actions/exchange';
+import {
+  EXCHANGE_RATES_CHANGE,
+  EXCHANGE_BALANCES_CHANGE,
+  SWAP_WALLETS,
+  ACTIVE_WALLET_CHANGE,
+  EXCHANGE_COMPLETE
+} from '../actions/exchange';
 
 const initialState = {
   rates: {},
@@ -23,6 +29,21 @@ const exchange = (state = initialState, action) => {
         deduction: state.gain,
         gain: state.deduction,
         rates: {}
+      };
+    case ACTIVE_WALLET_CHANGE:
+      return {
+        ...state,
+        deduction: null,
+        gain: null,
+        baseCurrency: action.baseCurrency,
+        resultCurrency: action.resultCurrency,
+        rates: {}
+      };
+    case EXCHANGE_COMPLETE:
+      return {
+        ...state,
+        deduction: null,
+        gain: null
       };
     default:
       return state;

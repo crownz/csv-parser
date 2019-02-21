@@ -9,8 +9,6 @@ import styles from './exchange-widget.css';
 
 const ExchangeWidget = ({
   exchangeRate,
-  baseCurrency,
-  resultCurrency,
   activeWallet,
   resultWallet,
   deduction,
@@ -18,7 +16,9 @@ const ExchangeWidget = ({
   onDeductionChange,
   onGainChange,
   swapWallets,
-  exchangeCurrencies
+  exchangeCurrencies,
+  changeResultWallet,
+  changeBaseWallet
 }) => (
   <div className={styles.container}>
     <div className={styles.top}>
@@ -27,6 +27,7 @@ const ExchangeWidget = ({
         exchangeAmount={deduction}
         onAmountChange={onDeductionChange}
         shouldValidateWallet
+        onWalletSelect={changeBaseWallet}
       />
       <div className={styles.swap}>
         <SwapButton onClick={swapWallets} />
@@ -42,7 +43,12 @@ const ExchangeWidget = ({
       </div>
     </div>
     <div className={styles.bottom}>
-      <WalletEntry wallet={resultWallet} exchangeAmount={gain} onAmountChange={onGainChange} />
+      <WalletEntry
+        wallet={resultWallet}
+        exchangeAmount={gain}
+        onAmountChange={onGainChange}
+        onWalletSelect={changeResultWallet}
+      />
       <Button
         onClick={exchangeCurrencies}
         disabled={!deduction || deduction < 0.1 || deduction > activeWallet.amount}

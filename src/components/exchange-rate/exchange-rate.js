@@ -9,7 +9,7 @@ const ExchangeRate = ({ fromCurrency, toCurrency, rate }) => (
   <div className={styles.container}>
     <TrendingIcon />
     <div className={styles.label}>
-      {`${fromCurrency}1 = ${getFormattedAmount(toCurrency, rate, 4)}`}
+      {`${getFormattedAmount(fromCurrency, 1, 0)} = ${getFormattedAmount(toCurrency, rate, 4)}`}
     </div>
   </div>
 );

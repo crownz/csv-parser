@@ -9,14 +9,14 @@ import styles from './wallet-entry.css';
 
 const WalletEntry = ({
   wallet,
-  onWalletChahnge,
   exchangeAmount,
   onAmountChange,
-  shouldValidateWallet
+  shouldValidateWallet,
+  onWalletSelect
 }) => (
   <div className={styles.container}>
     <div className={styles.walletInfo}>
-      <WalletSelector value={wallet.id} />
+      <WalletSelector value={wallet.id} onChange={onWalletSelect} />
       <BalanceLabel
         formattedAmount={getFormattedAmount(wallet.sign, wallet.amount)}
         isInvalid={shouldValidateWallet && wallet.amount < exchangeAmount}

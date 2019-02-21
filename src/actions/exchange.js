@@ -7,9 +7,15 @@ export const EXCHANGE_RATES_CHANGE = 'EXCHANGE_RATES_CHANGE';
 export const EXCHANGE_BALANCES_CHANGE = 'EXCHANGE_BALANCES_CHANGE';
 export const EXCHANGE_COMPLETE = 'EXCHANGE_COMPLETE';
 export const SWAP_WALLETS = 'SWAP_WALLETS';
+export const ACTIVE_WALLET_CHANGE = 'ACTIVE_WALLET_CHANGE';
 
 export const exchangeRateChanged = rates => ({ type: EXCHANGE_RATES_CHANGE, rates });
 export const exchangeComplete = contract => ({ type: EXCHANGE_COMPLETE, contract });
+export const activeWalletChanged = (baseCurrency, resultCurrency) => ({
+  type: ACTIVE_WALLET_CHANGE,
+  baseCurrency,
+  resultCurrency
+});
 
 export const exchangeBalancesChanged = (deduction, gain) => ({
   type: EXCHANGE_BALANCES_CHANGE,
@@ -57,4 +63,34 @@ export const exchangeCurrencies = () => (dispatch, getState) => {
   };
 
   dispatch(exchangeComplete(contract));
+};
+
+export const changeBaseWallet = baseId => (dispatch, getState) => {
+  const {
+    wallets,
+    exchange: { resultCurrency }
+  } = getState();
+
+  const resultId =
+    resultCurrency !== baseId
+      ? resultCurrency
+      : Object.keys(wallets).find(key => wallets[key].id !== baseId);
+
+  dispatch(activeWalletChanged(baseId, resultId));
+  dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
+};
+
+export const changeResultWallet = resultId => (dispatch, getState) => {
+  const {
+    wallets,
+    exchange: { baseCurrency }
+  } = getState();
+
+  const baseId =
+    baseCurrency !== resultId
+      ? baseCurrency
+      : Object.keys(wallets).find(key => wallets[key].id !== resultId);
+
+  dispatch(activeWalletChanged(baseId, resultId));
+  dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
 };

@@ -4,7 +4,9 @@ import {
   changeDeduction,
   changeGain,
   swapWallets,
-  exchangeCurrencies
+  exchangeCurrencies,
+  changeResultWallet,
+  changeBaseWallet
 } from '../../actions/exchange';
 import ExchangeWidget from './exchange-widget';
 
@@ -14,9 +16,9 @@ const mapStateToProps = state => {
     wallets
   } = state;
 
+  console.log('mapping', state);
+
   return {
-    baseCurrency,
-    resultCurrency,
     deduction,
     gain,
     exchangeRate: rates[resultCurrency],
@@ -29,7 +31,9 @@ const mapDispatchToProps = {
   onDeductionChange: changeDeduction,
   onGainChange: changeGain,
   swapWallets,
-  exchangeCurrencies
+  exchangeCurrencies,
+  changeBaseWallet,
+  changeResultWallet
 };
 
 export default connect(
