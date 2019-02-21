@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { getFormattedAmount } from '../../libs/currency-utils';
 import WalletSelector from '../wallet-selector';
