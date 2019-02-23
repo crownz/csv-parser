@@ -39,7 +39,7 @@ export const changeDeduction = deduction => (dispatch, getState) => {
   const { rates, resultCurrency } = getState().exchange;
   const rate = rates[resultCurrency];
   const gain = deduction * rate;
-  dispatch(exchangeBalancesChanged(deduction, gain));
+  return dispatch(exchangeBalancesChanged(deduction, gain));
 };
 
 export const changeGain = gain => (dispatch, getState) => {
@@ -51,7 +51,7 @@ export const changeGain = gain => (dispatch, getState) => {
 
 export const swapWallets = () => (dispatch, getState) => {
   dispatch(swapWalletsAction());
-  dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
+  return dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
 };
 
 export const exchangeCurrencies = () => (dispatch, getState) => {
@@ -78,7 +78,7 @@ export const changeBaseWallet = baseId => (dispatch, getState) => {
       : Object.keys(wallets).find(key => wallets[key].id !== baseId);
 
   dispatch(activeWalletChanged(baseId, resultId));
-  dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
+  return dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
 };
 
 export const changeResultWallet = resultId => (dispatch, getState) => {
@@ -93,5 +93,5 @@ export const changeResultWallet = resultId => (dispatch, getState) => {
       : Object.keys(wallets).find(key => wallets[key].id !== resultId);
 
   dispatch(activeWalletChanged(baseId, resultId));
-  dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
+  return dispatch(fetchExchangeRate(getState().exchange.baseCurrency));
 };

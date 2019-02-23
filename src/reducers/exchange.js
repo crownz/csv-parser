@@ -11,8 +11,7 @@ const initialState = {
   baseCurrency: 'USD',
   resultCurrency: 'GBP',
   deduction: null,
-  gain: null,
-  availableAmount: 0
+  gain: null
 };
 
 const exchange = (state = initialState, action) => {
