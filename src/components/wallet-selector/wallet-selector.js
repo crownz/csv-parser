@@ -10,6 +10,14 @@ class WalletSelector extends PureComponent {
     isActive: false
   };
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
   toggleActive = () => this.setState(prevState => ({ isActive: !prevState.isActive }));
   setInactive = () => this.setState({ isActive: false });
 
@@ -19,6 +27,14 @@ class WalletSelector extends PureComponent {
     }
     this.setInactive();
   };
+
+  handleClickOutside = e => {
+    if (this.dropdownRef && !this.dropdownRef.contains(e.target)) {
+      this.setInactive();
+    }
+  };
+
+  setDropdownRef = ref => (this.dropdownRef = ref);
 
   render() {
     const { value, wallets } = this.props;
@@ -35,7 +51,11 @@ class WalletSelector extends PureComponent {
           <ArrowDownIcon />
         </div>
         {isActive && (
-          <div className={styles.dropdown} data-test-id="wallet-selector-dropdown">
+          <div
+            className={styles.dropdown}
+            data-test-id="wallet-selector-dropdown"
+            ref={this.setDropdownRef}
+          >
             {wallets.map(wallet => (
               <div
                 className={`${styles.walletEntry} ${value === wallet.id ? styles.active : ''}`}
