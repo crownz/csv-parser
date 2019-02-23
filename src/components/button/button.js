@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './button.css';
 
@@ -12,5 +13,11 @@ const Button = ({ onClick, children, disabled = false }) => (
     {children}
   </button>
 );
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool
+};
 
 export default Button;

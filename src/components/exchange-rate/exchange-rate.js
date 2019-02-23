@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { getFormattedAmount } from '../../libs/currency-utils';
 import TrendingIcon from '../../icons/trending.svg';
@@ -13,5 +14,11 @@ const ExchangeRate = ({ fromCurrency, toCurrency, rate }) => (
     </div>
   </div>
 );
+
+ExchangeRate.propTypes = {
+  fromCurrency: PropTypes.string.isRequired,
+  toCurrency: PropTypes.string.isRequired,
+  rate: PropTypes.number.isRequired
+};
 
 export default ExchangeRate;

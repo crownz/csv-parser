@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Button from '../button';
 import ExchangeRate from '../exchange-rate';
@@ -43,5 +44,22 @@ const ExchangeWidget = ({
     </div>
   </div>
 );
+
+ExchangeWidget.propTypes = {
+  activeWallet: PropTypes.shape({
+    sign: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired
+  }),
+  resultWallet: PropTypes.shape({
+    sign: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired
+  }),
+  swapWallets: PropTypes.func.isRequired,
+  exchangeCurrencies: PropTypes.func.isRequired,
+  deduction: PropTypes.number,
+  exchangeRate: PropTypes.number
+};
 
 export default ExchangeWidget;

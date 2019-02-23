@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './balance-label.css';
 
@@ -10,5 +11,10 @@ const BalanceLabel = ({ formattedAmount, isInvalid = false }) => (
     {`Balance: ${formattedAmount}`}
   </div>
 );
+
+BalanceLabel.propTypes = {
+  formattedAmount: PropTypes.string.isRequired,
+  isInvalid: PropTypes.bool
+};
 
 export default BalanceLabel;

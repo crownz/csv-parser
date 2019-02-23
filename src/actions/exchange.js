@@ -1,6 +1,7 @@
 import { get } from '../libs/fetch';
 import { mapExchangeRates } from '../libs/currency-utils';
 
+// SHOULD BE MOVED TO ENV VARS/CONFIG.
 const API_KEY = '061066cb384cfa384603354e55e092e9';
 
 export const EXCHANGE_RATES_CHANGE = 'EXCHANGE_RATES_CHANGE';

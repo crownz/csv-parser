@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import { roundToTwoDecimals } from '../../libs/currency-utils';
 import { validateNumberInput } from '../../libs/validation';
@@ -47,5 +48,11 @@ class Input extends PureComponent {
     );
   }
 }
+
+Input.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired
+};
 
 export default Input;

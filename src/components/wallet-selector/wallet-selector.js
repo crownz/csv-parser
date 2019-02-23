@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import ArrowDownIcon from '../../icons/arrow-down.svg';
 
@@ -50,5 +51,17 @@ class WalletSelector extends PureComponent {
     );
   }
 }
+
+WalletSelector.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  wallets: PropTypes.arrayOf(
+    PropTypes.shape({
+      sign: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
 
 export default WalletSelector;

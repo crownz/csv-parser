@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
 import SwapIcon from '../../icons/swap.svg';
 
@@ -9,5 +10,9 @@ const SwapButton = ({ onClick }) => (
     <SwapIcon />
   </div>
 );
+
+SwapButton.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
 export default SwapButton;

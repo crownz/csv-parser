@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { getFormattedAmount } from '../../libs/currency-utils';
 import WalletSelector from '../wallet-selector';
@@ -11,7 +12,7 @@ const WalletEntry = ({
   wallet,
   exchangeAmount,
   onAmountChange,
-  shouldValidateWallet,
+  shouldValidateWallet = false,
   onWalletSelect
 }) => (
   <div className={styles.container} data-test-id="wallet-entry">
@@ -27,5 +28,17 @@ const WalletEntry = ({
     </div>
   </div>
 );
+
+WalletEntry.propTypes = {
+  wallet: PropTypes.shape({
+    sign: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired
+  }),
+  onAmountChange: PropTypes.func.isRequired,
+  onWalletSelect: PropTypes.func.isRequired,
+  shouldValidateWallet: PropTypes.bool,
+  exchangeAmount: PropTypes.number
+};
 
 export default WalletEntry;
