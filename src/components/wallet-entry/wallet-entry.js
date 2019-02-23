@@ -14,7 +14,7 @@ const WalletEntry = ({
   shouldValidateWallet,
   onWalletSelect
 }) => (
-  <div className={styles.container}>
+  <div className={styles.container} data-test-id="wallet-entry">
     <div className={styles.walletInfo}>
       <WalletSelector value={wallet.id} onChange={onWalletSelect} />
       <BalanceLabel

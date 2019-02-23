@@ -42,6 +42,7 @@ class Input extends PureComponent {
         onChange={this.handleChange}
         placeholder={placeholder}
         className={styles.input}
+        data-test-id="input"
       />
     );
   }

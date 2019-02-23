@@ -16,7 +16,7 @@ const ExchangeWidget = ({
   swapWallets,
   exchangeCurrencies
 }) => (
-  <div className={styles.container}>
+  <div className={styles.container} data-test-id="exchange-widget">
     <div className={styles.top}>
       <BaseWallet />
       <div className={styles.swap}>

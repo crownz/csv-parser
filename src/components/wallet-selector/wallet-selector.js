@@ -23,13 +23,18 @@ class WalletSelector extends PureComponent {
     const { value, wallets } = this.props;
     const { isActive } = this.state;
     return (
-      <div className={styles.container}>
-        <div className={styles.label} role="button" onClick={this.toggleActive}>
+      <div className={styles.container} data-test-id="wallet-selector">
+        <div
+          className={styles.label}
+          role="button"
+          onClick={this.toggleActive}
+          data-test-id="wallet-selector-label"
+        >
           {value}
           <ArrowDownIcon />
         </div>
         {isActive && (
-          <div className={styles.dropdown}>
+          <div className={styles.dropdown} data-test-id="wallet-selector-dropdown">
             {wallets.map(wallet => (
               <div
                 className={`${styles.walletEntry} ${value === wallet.id ? styles.active : ''}`}
