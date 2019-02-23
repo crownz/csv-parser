@@ -43,7 +43,6 @@ class WalletSelector extends PureComponent {
       <div className={styles.container} data-test-id="wallet-selector">
         <div
           className={styles.label}
-          role="button"
           onClick={this.toggleActive}
           data-test-id="wallet-selector-label"
         >

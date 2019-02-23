@@ -28,7 +28,7 @@ export const swapWalletsAction = () => ({
   type: SWAP_WALLETS
 });
 
-export const fetchExchangeRate = currency => (dispatch, getState) =>
+export const fetchExchangeRate = currency => dispatch =>
   get(`http://data.fixer.io/api/latest?access_key=${API_KEY}&symbols=USD,GBP,EUR`).then(result => {
     const rates =
       currency === result.base ? result.rates : mapExchangeRates(result.rates, currency);

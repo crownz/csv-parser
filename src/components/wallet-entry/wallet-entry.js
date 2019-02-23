@@ -34,11 +34,16 @@ WalletEntry.propTypes = {
     sign: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   onAmountChange: PropTypes.func.isRequired,
   onWalletSelect: PropTypes.func.isRequired,
   shouldValidateWallet: PropTypes.bool,
   exchangeAmount: PropTypes.number
+};
+
+WalletEntry.defaultProps = {
+  shouldValidateWallet: false,
+  exchangeAmount: null
 };
 
 export default WalletEntry;

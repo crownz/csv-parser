@@ -17,4 +17,8 @@ BalanceLabel.propTypes = {
   isInvalid: PropTypes.bool
 };
 
+BalanceLabel.defaultProps = {
+  isInvalid: false
+};
+
 export default BalanceLabel;

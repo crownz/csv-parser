@@ -32,6 +32,7 @@
     "no-use-before-define": "off",
     "consistent-return": "off",
     "react/no-find-dom-node": "warn",
-    "import/no-unresolved": "warn"
+    "import/no-unresolved": "warn",
+    "no-return-assign": "off"
   }
 }

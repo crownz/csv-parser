@@ -50,16 +50,21 @@ ExchangeWidget.propTypes = {
     sign: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   resultWallet: PropTypes.shape({
     sign: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   swapWallets: PropTypes.func.isRequired,
   exchangeCurrencies: PropTypes.func.isRequired,
   deduction: PropTypes.number,
   exchangeRate: PropTypes.number
+};
+
+ExchangeWidget.defaultProps = {
+  deduction: null,
+  exchangeRate: null
 };
 
 export default ExchangeWidget;

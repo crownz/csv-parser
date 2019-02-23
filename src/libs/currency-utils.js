@@ -7,6 +7,7 @@ export const mapExchangeRates = (rates, resultCurrency) =>
   Object.keys(rates).reduce((resultRates, currency) => {
     const rateToBase = rates[currency];
     const ratesToResultCurrency = (1 / rates[resultCurrency]) * rateToBase;
+    // eslint-disable-next-line no-param-reassign
     resultRates[currency] = ratesToResultCurrency;
     return resultRates;
   }, {});

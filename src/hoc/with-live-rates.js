@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchExchangeRate } from '../actions/exchange';
@@ -14,6 +15,11 @@ const withLiveRates = Component => {
       return <Component {...this.props} />;
     }
   }
+
+  WithLiveRates.propTypes = {
+    updateRates: PropTypes.func.isRequired,
+    currency: PropTypes.string.isRequired
+  };
 
   const mapStateToProps = state => ({
     currency: state.exchange.baseCurrency
