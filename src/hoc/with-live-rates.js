@@ -7,6 +7,7 @@ const withLiveRates = Component => {
   class WithLiveRates extends React.Component {
     componentDidMount() {
       this.props.updateRates(this.props.currency);
+      setInterval(() => this.props.updateRates(this.props.currency), 10000);
     }
 
     render() {
