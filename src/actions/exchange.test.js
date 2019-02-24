@@ -49,7 +49,7 @@ describe('Exchange actions: ', () => {
 
   it('Should update exchange rates after fetching values', () => {
     fetchMock.getOnce(
-      'http://data.fixer.io/api/latest?access_key=061066cb384cfa384603354e55e092e9&symbols=USD,GBP,EUR',
+      'http://data.fixer.io/api/latest?access_key=e56c462cf761a77c4639292b3fd8c351&symbols=USD,GBP,EUR',
       {
         body: { base: 'EUR', rates: { USD: 2, GBP: 2, EUR: 1 } },
         headers: { 'content-type': 'application/json' }
@@ -149,7 +149,7 @@ describe('Exchange actions: ', () => {
 
   it('Should swap wallets and update currencies', () => {
     fetchMock.getOnce(
-      'http://data.fixer.io/api/latest?access_key=061066cb384cfa384603354e55e092e9&symbols=USD,GBP,EUR',
+      'http://data.fixer.io/api/latest?access_key=e56c462cf761a77c4639292b3fd8c351&symbols=USD,GBP,EUR',
       {
         body: { base: 'EUR', rates: { USD: 2, GBP: 2, EUR: 1 } },
         headers: { 'content-type': 'application/json' }
@@ -183,7 +183,7 @@ describe('Exchange actions: ', () => {
 
   it('Should change base wallet and update currencies', () => {
     fetchMock.getOnce(
-      'http://data.fixer.io/api/latest?access_key=061066cb384cfa384603354e55e092e9&symbols=USD,GBP,EUR',
+      'http://data.fixer.io/api/latest?access_key=e56c462cf761a77c4639292b3fd8c351&symbols=USD,GBP,EUR',
       {
         body: { base: 'EUR', rates: { USD: 2, GBP: 2, EUR: 1 } },
         headers: { 'content-type': 'application/json' }
@@ -231,7 +231,7 @@ describe('Exchange actions: ', () => {
 
   it('Should change result wallet  and update currencies', () => {
     fetchMock.getOnce(
-      'http://data.fixer.io/api/latest?access_key=061066cb384cfa384603354e55e092e9&symbols=USD,GBP,EUR',
+      'http://data.fixer.io/api/latest?access_key=e56c462cf761a77c4639292b3fd8c351&symbols=USD,GBP,EUR',
       {
         body: { base: 'EUR', rates: { USD: 2, GBP: 2, EUR: 1 } },
         headers: { 'content-type': 'application/json' }
